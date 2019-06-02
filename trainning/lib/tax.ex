@@ -8,4 +8,12 @@ defmodule Tax do
     end
     IO.puts "Total on tax: #{tax}"
   end
+
+  def calculate do
+    user_input = IO.gets "Type your salary: "
+    case Integer.parse(user_input) do
+      :error -> IO.puts "Invalid salary: #{user_input}"
+      {salary, _} -> calculate(salary)
+    end
+  end
 end
